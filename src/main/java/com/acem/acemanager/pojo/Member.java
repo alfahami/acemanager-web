@@ -6,6 +6,7 @@ import java.util.UUID;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
 
 public class Member {
@@ -23,6 +24,7 @@ public class Member {
     private String firstName;
     @NotBlank(message = "Last name cannot be blank")
     private String lastName;
+    @Past
     @NotBlank(message = "Birth date cannot be blank")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthDate; // can't be null or not in the format: dd/MM/yyyy
@@ -39,7 +41,6 @@ public class Member {
     public Member() {
         this.id = UUID.randomUUID().toString();
     }
-
 
     public String getId() {
         return this.id;
@@ -116,6 +117,4 @@ public class Member {
     public void setIsMember(boolean isMember) {
         this.isMember = isMember;
     }
-
-
 }

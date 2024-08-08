@@ -1,19 +1,32 @@
 @font-face {
     font-family: billabong;
-    src: url(fonts/billabong.ttf);
+    src: url(../fonts/billabong.ttf);
     font-weight: bold;
 }
 
 .container {
     position: absolute;
     text-align: center;
-    border-style: solid;
+    border-style: dotted;
+    border-color: #00822b;
     left: 50%;
     top: 50%;
-    width: 25%;
+    width: 90%; 
     transform: translate(-50%, -50%);
     padding: 20px;
 } 
+
+.flexbox {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.left .middle .right {
+  width: 30%;
+}
+.middle {
+  margin: 0 30px;
+}
 
 input, select, textarea {
   width: 100%; 
@@ -27,6 +40,15 @@ input, select, textarea {
   font-size: 18px;
 } 
 
+input:hover, select:hover {
+  border: 1px solid #1d9144;
+  /* outline: #00822b; */
+}
+
+input:focus, select:focus {
+  outline: 1px solid #00822b;
+}
+
 input[type=submit] {
   width: 100%;
   color: white;
@@ -38,14 +60,15 @@ input[type=submit] {
 }
 
 h2 {
-  color: black;
+  color: #00822b;
   font-family: billabong;
-  font-size: 60px;
-  font-weight: 600;    
+  font-size: 55px;
+  font-weight: 600; 
+  margin: 15px;   
 }
 
 input[type=submit]:hover {
-  background-color: black; 
+  background-color: #00822b; 
 }
 
 body {
