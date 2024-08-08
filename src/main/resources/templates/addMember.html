@@ -26,16 +26,28 @@
                     <input type="text" placeholder="Matricule AMCI" th:field="*{matriculeAmci}">
                     <p style="color: red;" th:errors="*{lastName}"></p>
                     <select name="" id="">
-                        <option value="">Choose a city</option>
+                        <option value="">Choose city</option>
                         <option value="Fes">Fes</option>
                         <option value="Meknes">Meknes</option>
                         <option value="Kenitra">Kenitra</option>
                         <option value="Sale">Sale</option>
                         <option value="Rabat">Rabat</option>
                     </select>
-                    <input type="text" placeholder="To be added" th:field="*{lastName}">
-                    <p style="color: red;" th:errors="*{email}"></p>
-                    <input type="text" placeholder="To be added" th:field="*{email}">
+                    <select name="" id="">
+                        <option value="">Choose Faculty/School</option>
+                        <option value="FS">Faculty of Science</option>
+                        <option value="FST">Faculty of Science & Technic</option>
+                        <option value="FL">Faculty of Letters</option>
+                        <option value="FSJES">Faculty of Economy</option>
+                        <option value="ENCG">ENCG</option>
+                    </select>
+                    <select name="" id="">
+                        <option value="">Choose Field</option>
+                        <option value="SMA">Applied Science Mathematics</option>
+                        <option value="SMI">Computer Science & Mathematics</option>
+                        <option value="SMP">Mathematics & Physics</option>
+                        <option value="SMC">Chemistery</option>
+                    </select> 
                 </div>
                 <div class="right">
                     <p style="color: red;" th:errors="*{firstName}"></p>
