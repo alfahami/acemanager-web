@@ -1,0 +1,57 @@
+<head>
+    <title>Sign Up</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+    <div class="container">
+        <h2>AceManager</h2>
+        <form method="post" th:object="${member}" th:action="@{/submitMember}">
+            <div class="flexbox">
+                <div class="left">
+                    <p style="color: red;" th:errors="*{firstName}"></p>
+                    <input type="text" placeholder="First Name" th:field="*{firstName}">
+                    <p style="color: red;" th:errors="*{lastName}"></p>
+                    <input type="text" placeholder="Last Name" th:field="*{lastName}">
+                    <p style="color: red;" th:errors="*{passport}"></p>
+                    <input type="text" placeholder="Passport" th:field="*{passport}">
+                    <p style="color: red;" th:errors="*{email}"></p>
+                    <input type="text" placeholder="Email" th:field="*{email}">
+                    <p style="font-weight: bold; margin-top: 5px">Date of Birth</p>
+                    <p style="color: red;" th:errors="*{birthDate}"></p>
+                    <input type="date" th:field="*{birthDate}">
+                </div>
+                <div class="middle">
+                    <p style="color: red;" th:errors="*{matriculeAmci}"></p>
+                    <input type="text" placeholder="Matricule AMCI" th:field="*{matriculeAmci}">
+                    <p style="color: red;" th:errors="*{lastName}"></p>
+                    <select name="" id="">
+                        <option value="">Choose a city</option>
+                        <option value="Fes">Fes</option>
+                        <option value="Meknes">Meknes</option>
+                        <option value="Kenitra">Kenitra</option>
+                        <option value="Sale">Sale</option>
+                        <option value="Rabat">Rabat</option>
+                    </select>
+                    <input type="text" placeholder="To be added" th:field="*{lastName}">
+                    <p style="color: red;" th:errors="*{email}"></p>
+                    <input type="text" placeholder="To be added" th:field="*{email}">
+                </div>
+                <div class="right">
+                    <p style="color: red;" th:errors="*{firstName}"></p>
+                    <input type="text" placeholder="To be added" th:field="*{firstName}">
+                    <p style="color: red;" th:errors="*{lastName}"></p>
+                    <input type="text" placeholder="To be added" th:field="*{lastName}">
+                    <p style="color: red;" th:errors="*{passport}"></p>
+                    <input type="text" placeholder="To be added" th:field="*{passport}">
+                    <p style="color: red;" th:errors="*{email}"></p>
+                    <input type="text" placeholder="To be added" th:field="*{email}">
+                    <br><br><br><br><br><br>
+                    <input type="submit" value="Submit">
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+</body>
