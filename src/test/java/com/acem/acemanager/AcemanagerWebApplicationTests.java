@@ -1,4 +1,4 @@
-package com.acemanager.acemanager_web;
+package com.acem.acemanager;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
