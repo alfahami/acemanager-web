@@ -1,5 +1,121 @@
 package com.acem.acemanager.pojo;
 
+import java.util.Date;
+import java.util.UUID;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
 public class Member {
+        
+    private String id;
+    // private int idCard;
+    // private int idCity;
+    // private int idFaculty;
+    // private int idField;
+    // private int idSession;
     
+    @Size(max=9, message = "Passport must contains 9 characters")
+    private String passport; // NBE388510, MUST: 9 chars max
+    @NotBlank(message = "First name cannot be blank")
+    private String firstName;
+    @NotBlank(message = "Last name cannot be blank")
+    private String lastName;
+    @NotBlank(message = "Birth date cannot be blank")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date birthDate; // can't be null or not in the format: dd/MM/yyyy
+
+    private int age; // Should do automatically be calucated from birthdate
+    @NotBlank(message = "Email cannot be blank")
+    private String email;
+    @Size(max=9, message = "Matricule AMCI must contains 8 characters")
+    private Integer matriculeAmci; // 20111473, MUST: 8 chars
+    private boolean isMember;
+    //private Role role;
+
+
+    public Member() {
+        this.id = UUID.randomUUID().toString();
+    }
+
+
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getPassport() {
+        return this.passport;
+    }
+
+    public void setPassport(String passport) {
+        this.passport = passport;
+    }
+
+    public String getFirstName() {
+        return this.firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return this.lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public Date getBirthDate() {
+        return this.birthDate;
+    }
+
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public int getAge() {
+        return this.age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Integer getMatriculeAmci() {
+        return this.matriculeAmci;
+    }
+
+    public void setMatriculeAmci(Integer matriculeAmci) {
+        this.matriculeAmci = matriculeAmci;
+    }
+
+    public boolean isIsMember() {
+        return this.isMember;
+    }
+
+    public boolean getIsMember() {
+        return this.isMember;
+    }
+
+    public void setIsMember(boolean isMember) {
+        this.isMember = isMember;
+    }
+
+
 }
