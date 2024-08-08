@@ -34,7 +34,7 @@ public class Member {
     private String email;
     @Size(max=9, message = "Matricule AMCI must contains 8 characters")
     private Integer matriculeAmci; // 20111473, MUST: 8 chars
-    private boolean isMember;
+    private Boolean isMember;
     //private Role role;
 
 
@@ -106,11 +106,11 @@ public class Member {
         this.matriculeAmci = matriculeAmci;
     }
 
-    public boolean isIsMember() {
+    public Boolean isIsMember() {
         return this.isMember;
     }
 
-    public boolean getIsMember() {
+    public Boolean getIsMember() {
         return this.isMember;
     }
 

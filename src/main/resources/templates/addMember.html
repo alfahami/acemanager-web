@@ -8,7 +8,7 @@
         <h2>AceManager</h2>
         <form method="post" th:object="${member}" th:action="@{/submitMember}">
             <div class="flexbox">
-                <div class="left">
+                <div class="item">
                     <p style="color: red;" th:errors="*{firstName}"></p>
                     <input type="text" placeholder="First Name" th:field="*{firstName}">
                     <p style="color: red;" th:errors="*{lastName}"></p>
@@ -17,11 +17,11 @@
                     <input type="text" placeholder="Passport" th:field="*{passport}">
                     <p style="color: red;" th:errors="*{email}"></p>
                     <input type="text" placeholder="Email" th:field="*{email}">
-                    <p style="font-weight: bold; margin-top: 5px">Date of Birth</p>
+                    <p style="font-weight: bold;">Date of Birth</p>
                     <p style="color: red;" th:errors="*{birthDate}"></p>
                     <input type="date" th:field="*{birthDate}">
                 </div>
-                <div class="middle">
+                <div class="item">
                     <p style="color: red;" th:errors="*{matriculeAmci}"></p>
                     <input type="text" placeholder="Matricule AMCI" th:field="*{matriculeAmci}">
                     <p style="color: red;" th:errors="*{lastName}"></p>
@@ -48,20 +48,24 @@
                         <option value="SMP">Mathematics & Physics</option>
                         <option value="SMC">Chemistery</option>
                     </select> 
+                    <select name="" id="" th:field="*{isMember}">
+                        <option value="">Is this a Member ?</option>
+                        <option th:value="true">Yes</option>
+                        <option th:value="false">No</option>
+                       </select>
                 </div>
-                <div class="right">
-                    <p style="color: red;" th:errors="*{firstName}"></p>
-                    <input type="text" placeholder="To be added" th:field="*{firstName}">
-                    <p style="color: red;" th:errors="*{lastName}"></p>
-                    <input type="text" placeholder="To be added" th:field="*{lastName}">
-                    <p style="color: red;" th:errors="*{passport}"></p>
+                <div class="item">
+                   
+                    <!-- <p style="color: red;" th:errors="*{passport}"></p>
                     <input type="text" placeholder="To be added" th:field="*{passport}">
                     <p style="color: red;" th:errors="*{email}"></p>
-                    <input type="text" placeholder="To be added" th:field="*{email}">
-                    <br><br><br><br><br><br>
-                    <input type="submit" value="Submit">
-                </div>
+                    <input type="text" placeholder="To be added" th:field="*{email}"> -->
 
+                </div>
+                
+            </div>
+            <div class="submit">
+                <input type="submit" value="Submit">
             </div>
 
         </form>
