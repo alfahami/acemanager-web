@@ -50,10 +50,11 @@
                         <option value="SMC">Chemistery</option>
                     </select> 
                     <select name="" id="" th:field="*{isMember}">
-                        <option value="">Is this a Member ?</option>
+                        <!-- <option value="">Is this a Member ?</option> -->
                         <option th:value="true">Yes</option>
                         <option th:value="false">No</option>
                        </select>
+                       <input type="hidden" name="" th:field="*{id}">
                 </div>
             </div>
             <div class="clearfix"></div>

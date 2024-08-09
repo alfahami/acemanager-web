@@ -20,6 +20,7 @@
   <div class="content">
     <div class="container">
       <h2 class="mb-5">Members</h2>
+      <a class="text-center" th:href="@{/addMember}">add Member</a>
 
       <div class="table-responsive">
 
@@ -43,7 +44,7 @@
               <td th:text="${member.email}"></td>
               <td th:if="${member.isMember == true}">Yes</td>
               <td th:unless="${member.isMember == true}">No</td>
-              <td><a role="button" class="update" th:href="@{/members(id= ${member.id})}">Update</a></td>
+              <td><a role="button" class="update" th:href="@{/editMember(id= ${member.id})}">Update</a></td>
             </tr>
           </tbody>
         </table>
