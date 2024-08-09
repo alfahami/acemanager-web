@@ -36,23 +36,19 @@
           </thead>
           <tbody>
             <tr th:each="member : ${members}">
-              <td th:field="*{firstName + ' ' + lastName}"></td>
-              <td th:field="*{birthDate}"></td>
-              <td th:field="*{passport}"></td>
-              <td th:field="*{matAmci}"></td>
-              <td th:field="*{email}"></td>
-              <td th:field="*{isMember}"></td>
-              <td><a th:href="@{/members(id= ${member.id})}"></a></td>
+              <td th:text="${member.firstName + ' ' + member.lastName}"></td>
+              <td th:text="${member.age}"></td>
+              <td th:text="${member.passport}"></td>
+              <td th:text="${member.matriculeAmci}"></td>
+              <td th:text="${member.email}"></td>
+              <td th:if="${member.isMember == true}">Yes</td>
+              <td th:unless="${member.isMember == true}">No</td>
+              <td><a role="button" class="update" th:href="@{/members(id= ${member.id})}">Update</a></td>
             </tr>
-
-
           </tbody>
         </table>
       </div>
-
-
     </div>
-
   </div>
 
 

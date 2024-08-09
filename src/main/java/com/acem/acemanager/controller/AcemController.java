@@ -28,14 +28,14 @@ public class AcemController {
 
     @GetMapping("/members")
     public String getMembers(Model model) {
-        
+        model.addAttribute("members", acemService.getMembers());
         return "listMembers";
     }
     
-
     @PostMapping("/submitMember")
     public String postMethodName(@Valid Member member, BindingResult bindingResult) {
         if(bindingResult.hasErrors()) return "addMember";
+        acemService.toAge(member, member.getBirthDate());
        acemService.addMember( member);
         return "redirect:/members";
     }

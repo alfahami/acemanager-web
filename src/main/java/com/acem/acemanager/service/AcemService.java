@@ -1,6 +1,11 @@
 package com.acem.acemanager.service;
 
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,5 +38,13 @@ public class AcemService {
 
     public List<Member> getMembers() {
         return this.acemRepository.getMembers();
+    }
+
+    public void toAge(Member member, Date birthDate) {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        String date = formatter.format(birthDate);  
+               int age = Period.between(LocalDate.parse(date, DateTimeFormatter.ofPattern("yyyy-MM-dd")), LocalDate.now())
+        .getYears();
+        member.setAge(age); 
     }
 }
