@@ -1,10 +1,12 @@
 package com.acem.acemanager.repository;
 
-import java.lang.reflect.Member;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
+
+import com.acem.acemanager.pojo.Member;
 
 @Repository
 public class AcemRepository {
