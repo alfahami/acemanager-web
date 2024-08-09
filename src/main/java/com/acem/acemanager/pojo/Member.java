@@ -3,6 +3,7 @@ package com.acem.acemanager.pojo;
 import java.util.Date;
 import java.util.UUID;
 
+import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.validation.constraints.NotBlank;
@@ -18,21 +19,20 @@ public class Member {
     // private int idField;
     // private int idSession;
     
-    @Size(max=9, message = "Passport must contains 9 characters")
+    @Size(min=9, max=9, message = "Passport MUST contains 9 characters")
     private String passport; // NBE388510, MUST: 9 chars max
     @NotBlank(message = "First name cannot be blank")
     private String firstName;
     @NotBlank(message = "Last name cannot be blank")
     private String lastName;
     @Past
-    @NotBlank(message = "Birth date cannot be blank")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthDate; // can't be null or not in the format: dd/MM/yyyy
 
     private int age; // Should do automatically be calucated from birthdate
     @NotBlank(message = "Email cannot be blank")
     private String email;
-    @Size(max=9, message = "Matricule AMCI must contains 8 characters")
+    
     private Integer matriculeAmci; // 20111473, MUST: 8 chars
     private Boolean isMember;
     //private Role role;

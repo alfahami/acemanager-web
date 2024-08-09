@@ -35,6 +35,7 @@ public class AcemController {
     @PostMapping("/submitMember")
     public String postMethodName(@Valid Member member, BindingResult bindingResult) {
         if(bindingResult.hasErrors()) return "addMember";
+        
         return "redirect:/members";
     }
     
