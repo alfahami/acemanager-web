@@ -3,7 +3,6 @@ package com.acem.acemanager.pojo;
 import java.util.Date;
 import java.util.UUID;
 
-import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.validation.constraints.NotBlank;
