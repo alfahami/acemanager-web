@@ -87,7 +87,18 @@ public class AcemanagerTest {
 
     @Test
     public void updateMemberTest() {
+        //1. Mock
+        Member tech = new Member("NBE388597", "Notorius", "Biggie", "ntbig@gmail.com", 20115473, false);
+        when(acemRepository.getMembers()).thenReturn(Arrays.asList(
+                tech));
+
+        //2. Act
+        tech.setFirstName("Raul");
+        acemService.submitForm(tech);
         
+
+        // 3. Assert
+        verify(acemRepository, times(1)).updateMember(0, tech);
     }
 
 }
