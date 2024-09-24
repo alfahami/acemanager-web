@@ -38,6 +38,7 @@ public class Member {
 
 
     public Member(String passport, String firstName, String lastName, String email, Integer matriculeAmci, Boolean isMember) {
+        this.id = UUID.randomUUID().toString();
         this.passport = passport;
         this.firstName = firstName;
         this.lastName = lastName;

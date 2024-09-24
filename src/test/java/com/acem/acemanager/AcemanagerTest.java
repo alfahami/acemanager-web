@@ -13,6 +13,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import com.acem.acemanager.constants.Constants;
 import com.acem.acemanager.pojo.Member;
 import com.acem.acemanager.repository.AcemRepository;
 import com.acem.acemanager.service.AcemService;
@@ -28,16 +29,32 @@ public class AcemanagerTest {
     private AcemService acemService;
 
     @Test
-     public void getMembersFromRepoTest() {
+    public void getMembersFromRepoTest() {
         when(acemRepository.getMembers()).thenReturn(Arrays.asList(
-            new Member("NBE388507", "Tupac", "Shakur", "altoihir@gmail.com", 20111473, true),
-            new Member("NBE388597", "Notorius", "Biggie", "ntbig@gmail.com", 20115473, false)
-        ));
+                new Member("NBE388507", "Tupac", "Shakur", "altoihir@gmail.com", 20111473, true),
+                new Member("NBE388597", "Notorius", "Biggie", "ntbig@gmail.com", 20115473, false)));
 
         List<Member> result = acemRepository.getMembers();
 
         assertEquals("NBE388507", result.get(0).getPassport());
         assertEquals(false, result.get(1).getIsMember());
-     }
+    }
+
+    @Test
+    public void MemberIndexTest() {
+        // 1. Mock the data of the service method
+        Member tech = new Member("NBE388597", "Notorius", "Biggie", "ntbig@gmail.com", 20115473, false);
+        when(acemRepository.getMembers()).thenReturn(Arrays.asList(
+                tech));
+
+        // 2. Act
+        int valid = acemService.getMemberIndex(tech.getId());
+        int notFound = acemService.getMemberIndex("123");
+
+        // 3. Assert
+        assertEquals(0, valid);
+        assertEquals(Constants.NOT_FOUND, notFound);
+
+    }
 
 }
