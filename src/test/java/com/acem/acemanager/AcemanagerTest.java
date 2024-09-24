@@ -71,8 +71,23 @@ public class AcemanagerTest {
 
         //3. Assert
         assertEquals(tech, result);
+    }
 
+    @Test
+    public void addMemberTest() {
+        //1. Mock
+        Member tech = new Member("NBE388597", "Notorius", "Biggie", "ntbig@gmail.com", 20115473, false);
+        when(acemRepository.getMembers()).thenReturn(Arrays.asList(
+                tech));
+        
+        Member newMember = new Member("NBE388597", "Tupac", "Shakur", "ntbig@gmail.com", 20115473, false);
+        acemService.submitForm(newMember);
+        verify(acemRepository, times(1)).addMember(newMember);
+    }
 
+    @Test
+    public void updateMemberTest() {
+        
     }
 
 }
