@@ -57,4 +57,22 @@ public class AcemanagerTest {
 
     }
 
+    @Test
+    public void returnMemberByIdTest() {
+        // 1. Mock the data of the service method
+        Member tech = new Member("NBE388597", "Notorius", "Biggie", "ntbig@gmail.com", 20115473, false);
+        when(acemRepository.getMembers()).thenReturn(Arrays.asList(
+                tech));
+        when(acemRepository.getMember(0)).thenReturn(tech);
+
+        // 2. Act
+        String id = tech.getId();
+        Member result = acemService.getMemberById(id);
+
+        //3. Assert
+        assertEquals(tech, result);
+
+
+    }
+
 }
