@@ -37,17 +37,6 @@ public class Member {
     //private Role role;
 
 
-    public Member(String passport, String firstName, String lastName, String email, Integer matriculeAmci, Boolean isMember) {
-        this.id = UUID.randomUUID().toString();
-        this.passport = passport;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.matriculeAmci = matriculeAmci;
-        this.isMember = isMember;
-    }
-
-
     public Member() {
         this.id = UUID.randomUUID().toString();
     }
