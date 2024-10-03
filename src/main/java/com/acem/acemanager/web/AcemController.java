@@ -1,5 +1,7 @@
 package com.acem.acemanager.web;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -43,6 +45,13 @@ public class AcemController {
         acemService.updateMember(acemService.getMemberIndex(id), member);
 
         return new ResponseEntity<>(member, HttpStatus.valueOf(200));
+    }
+
+    @GetMapping("/member/all")
+    public ResponseEntity<List<Member>> getMembers() {
+        List<Member> members = acemService.getMembers();
+
+        return new ResponseEntity<>(members, HttpStatus.valueOf(200));
     }
 
     @GetMapping("/addMember")
