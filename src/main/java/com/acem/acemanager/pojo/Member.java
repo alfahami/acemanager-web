@@ -5,6 +5,8 @@ import java.util.UUID;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
@@ -25,7 +27,8 @@ public class Member {
     @NotBlank(message = "Last name cannot be blank")
     private String lastName;
     @Past
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private Date birthDate; // can't be null or not in the format: dd/MM/yyyy
 
     private int age; // Should do automatically be calucated from birthdate

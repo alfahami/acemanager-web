@@ -31,6 +31,11 @@ public class AcemController {
         return new ResponseEntity<>(member, HttpStatus.valueOf(200));
     }
 
+    @PostMapping("/member/create")
+    public ResponseEntity<HttpStatus> createMember(@RequestBody Member member) {
+        acemService.addMember(member);
+        return new ResponseEntity<>(HttpStatus.valueOf(201));
+    }
 
     @GetMapping("/addMember")
     public String getMemberForm(Model model) {
