@@ -15,6 +15,7 @@ import com.acem.acemanager.service.AcemService;
 import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,6 +36,13 @@ public class AcemController {
     public ResponseEntity<HttpStatus> createMember(@RequestBody Member member) {
         acemService.addMember(member);
         return new ResponseEntity<>(HttpStatus.valueOf(201));
+    }
+
+    @PutMapping("/member/{id}")
+    public ResponseEntity<Member> updateMember(@PathVariable String id, @RequestBody Member member) {
+        acemService.updateMember(acemService.getMemberIndex(id), member);
+
+        return new ResponseEntity<>(member, HttpStatus.valueOf(200));
     }
 
     @GetMapping("/addMember")
