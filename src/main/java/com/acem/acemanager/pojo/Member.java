@@ -26,7 +26,7 @@ public class Member {
     private String firstName;
     @NotBlank(message = "Last name cannot be blank")
     private String lastName;
-    @Past
+    @Past // Date should be in the past than today
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     @JsonFormat(pattern = "dd/MM/yyyy")
     private Date birthDate; // can't be null or not in the format: dd/MM/yyyy

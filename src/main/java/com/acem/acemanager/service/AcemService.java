@@ -21,6 +21,7 @@ public class AcemService {
     private AcemRepository acemRepository;
 
     public void addMember(Member member) {
+        toAge(member, member.getBirthDate());
         this.acemRepository.addMember(member);
     }
 
@@ -62,7 +63,6 @@ public class AcemService {
     }
 
     public void submitForm(Member member) {
-        toAge(member, member.getBirthDate());
         int index = getMemberIndex(member.getId());
         if (index == Constants.NOT_FOUND) {
             addMember(member);
